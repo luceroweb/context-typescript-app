@@ -2,22 +2,15 @@ import "./App.css";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
 import { Settings } from "./components/Settings";
-import { createContext, useState } from "react";
-
-export const LoginContext = createContext({
-  loggedIn: false,
-  setLoggedIn: (loggedIn: boolean) => {},
-});
+import { LoginProvider } from "./Context/LoginContext";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
-
   return (
-    <LoginContext.Provider value={{ loggedIn, setLoggedIn }}>
+    <LoginProvider>
       <Login />
       <Home />
       <Settings />
-    </LoginContext.Provider>
+    </LoginProvider>
   );
 }
 

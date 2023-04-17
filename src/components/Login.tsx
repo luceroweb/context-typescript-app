@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { LoginContext } from "../App";
+import { useLoginContext } from "./useLoginContext";
 import { DisplayLogin } from "./DisplayLogin";
 
 export const Login = () => {
-  const { loggedIn, setLoggedIn } = useContext(LoginContext);
+  const { loggedIn, setLoggedIn } = useLoginContext();
 
   return (
     <>
@@ -13,7 +12,9 @@ export const Login = () => {
         </div>
         {!loggedIn && <DisplayLogin />}
         <div>
-          <button onClick={() => setLoggedIn(!loggedIn)}>Login</button>
+          <button onClick={() => setLoggedIn(!loggedIn)}>
+            {!loggedIn ? "Logout" : "Login"}
+          </button>
         </div>
       </div>
     </>

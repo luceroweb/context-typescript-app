@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { LoginContext } from "../App";
+import { useLoginContext } from "./useLoginContext";
 import { DisplayLogin } from "./DisplayLogin";
 
 export const Home = () => {
-  const { loggedIn, setLoggedIn } = useContext(LoginContext);
+  const { loggedIn } = useLoginContext();
 
   return (
     <div className="pageLayout">
